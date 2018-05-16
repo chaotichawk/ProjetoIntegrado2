@@ -6,10 +6,9 @@ public class PowerUpSpawner : MonoBehaviour {
     public GameObject PowerUp;
 
 	void Start () {
-		
 	}
 	
 	void Update () {
-		
+		//TestNewTest -64/64
 	}
 }
