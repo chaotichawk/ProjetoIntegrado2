@@ -21,11 +21,13 @@ public class GameController : MonoBehaviour
     private bool endGame = false;
     private int indexSomaP1;
     private int indexSomaP2;
+    public PowerUpSpawner pUPScript;
     void Start()
     {
         pointP1 = new int[3];
         pointP2 = new int[3];
         Invoke("SpawnPlayers", 0.01f);
+        pUPScript = GameObject.Find("Spawner").GetComponent<PowerUpSpawner>();
     }
 
     void Update()
@@ -67,6 +69,10 @@ public class GameController : MonoBehaviour
         {
             Destroy(Player1scene);
             Destroy(Player2scene);
+            foreach(GameObject pup in pUPScript.PowerUpStorage)
+            {
+                Destroy(pup);
+            }
             endGame = true;
         }
         else if (SomaPontos(pointP1) < 3 || SomaPontos(pointP2) < 3)
